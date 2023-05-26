@@ -69,6 +69,7 @@ const Form = () => {
     });
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
+
     if(savedUser) {
       setPageType("login")
     }
@@ -77,7 +78,7 @@ const Form = () => {
     const loggedInResponse = await fetch("http://localhost:5000/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json"},
-      body: JSON.stringify(values),
+      body: JSON.stringify(values)
     })
     const loggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
@@ -90,8 +91,8 @@ const Form = () => {
       );
       navigate("/home")
   };
-
   }
+
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     if(isLogin) await login(values, onSubmitProps);
